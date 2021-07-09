@@ -1,5 +1,5 @@
 
-function MAE101_simulator()
+function MAE101_project()
 % simulate data from the mat file.
 
 % for plotting
