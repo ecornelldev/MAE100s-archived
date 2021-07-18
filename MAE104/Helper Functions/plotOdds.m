@@ -6,7 +6,7 @@ subplot(1,2,1)
 f1 = p./(1-p);
 plot(p,f1,'k','linewidth',2)
 axis([0 1 0 100])
-title('Odds')
+title(append('Odds ', '(', plot_title, ')'))
 xlabel('p(m = 1)')
 ylabel('Odds')
 grid on
@@ -20,5 +20,5 @@ grid on
 title('log Odds')
 xlabel('p(m = 1)')
 ylabel('log(Odds)')
-title (plot_title); 
+title (append('log(Odds) ', ' ', '(', plot_title, ')')); 
 end
