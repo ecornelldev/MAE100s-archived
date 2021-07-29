@@ -9,8 +9,10 @@ lim = 3;
 epsilon = 1;
 f = figure;
 set(f,'position',[10,10,550,550])
+set(f,'Units','normal','position',[.1 .1 .8 .8])
+% ax = axes('Parent',f,'position',[0.05 0.25  0.4 0.67]);
 ax = axes('Parent',f,'position',[0.05 0.25  0.4 0.67]);
-ax = axes('Parent',f,'position',[0.05 0.25  0.4 0.67]);
+
 hold on
 axis([-lim lim -lim lim])
 axis equal
@@ -57,8 +59,11 @@ data.pose = pose;
 
 
 if N>1
-    b = uicontrol('Parent',f,'Style','slider','Position',[81,54,419,23],...
-                  'value',1, 'min',1, 'max',N,'SliderStep',[1/(N-1),0.1]);
+%     b = uicontrol('Parent',f,'Style','slider','Position',[81,54,419,23],...
+%                   'value',1, 'min',1, 'max',N,'SliderStep',[1/(N-1),0.1]);
+              
+    b = uicontrol('Parent',f,'Style','slider','Units','normal','Position',[.15,54/540,419/540,23/540],...
+              'value',1, 'min',1, 'max',N,'SliderStep',[1/(N-1),0.1]);
     bgcolor = f.Color;
     bl1 = uicontrol('Parent',f,'Style','text','Position',[50,54,23,23],...
                     'String','0','BackgroundColor',bgcolor);
@@ -69,8 +74,12 @@ if N>1
 
     addlistener(b,'ContinuousValueChange',@(hObject, event) updatePlot(hObject, event));
 
-    b2 = uicontrol('Parent',f,'Position',[250,525,50,20],...
-                  'String','Run KF');
+%     b2 = uicontrol('Parent',f,'Position',[250,525,50,20],...
+%                   'String','Run KF');
+
+    b2 = uicontrol('Parent',f,'Units','normal','Position',[250/540,505/540,50/540,30/540],...
+              'String','Run KF');
+          
     b2.Callback = @runKF;
     data.b = b;
     guidata(f,data);

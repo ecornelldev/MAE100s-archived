@@ -20,5 +20,6 @@ grid on
 title('log Odds')
 xlabel('p(m = 1)')
 ylabel('log(Odds)')
-title (plot_title); 
+title ('log(Odds)'); 
+sgtitle(plot_title); 
 end
